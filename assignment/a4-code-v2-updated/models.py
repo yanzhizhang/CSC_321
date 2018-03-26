@@ -49,7 +49,7 @@ class DCGenerator(nn.Module):
         ##   FILL THIS IN: CREATE ARCHITECTURE   ##
         ###########################################
 
-        self.deconv1 = deconvc
+        self.deconv1 = deconv(100,128,4,stride=1,padding=0,batch_norm=True)
         self.deconv2 = deconv(128,64,4,batch_norm=True)
         self.deconv3 = deconv(64,32,4,batch_norm=True)
         self.deconv4 = deconv(32,3,4,batch_norm=False)
@@ -67,6 +67,7 @@ class DCGenerator(nn.Module):
         """
 
         out = F.relu(self.deconv1(z))    # BS x 128 x 4 x 4
+        print (out.size())
         out = F.relu(self.deconv2(out))  # BS x 64 x 8 x 8
         out = F.relu(self.deconv3(out))  # BS x 32 x 16 x 16
         out = F.tanh(self.deconv4(out))  # BS x 3 x 32 x 32
@@ -103,7 +104,7 @@ class CycleGenerator(nn.Module):
 
         # 3. Define the decoder part of the generator (that builds up the output image from features)
         self.deconv1 = deconv(64,32,4,batch_norm=True)
-        self.deconv2 = deconv(32,3,4,batch_norm=True)
+        self.deconv2 = deconv(32,3,4,batch_norm=False)
 
     def forward(self, x):
         """Generates an image conditioned on an input image.
@@ -139,10 +140,10 @@ class DCDiscriminator(nn.Module):
         ##   FILL THIS IN: CREATE ARCHITECTURE   ##
         ###########################################
 
-        self.conv1 = conv(3,64,4,batch_norm=True)
-        self.conv2 = conv(64,128,4,batch_norm=True)
-        self.conv3 = conv(128,256,4,batch_norm=True)
-        self.conv4 = conv(256,1,4,batch_norm=False)
+        self.conv1 = conv(3,32,4,batch_norm=True)
+        self.conv2 = conv(32,64,4,batch_norm=True)
+        self.conv3 = conv(64,128,4,batch_norm=True)
+        self.conv4 = conv(128,1,4,batch_norm=False)
 
     def forward(self, x):
 

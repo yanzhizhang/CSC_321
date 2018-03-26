@@ -129,7 +129,6 @@ def check_cycle_generator():
 
 
 if __name__ == '__main__':
-
     try:
         check_dc_generator()
     except:
