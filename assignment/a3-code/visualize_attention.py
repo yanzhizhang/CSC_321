@@ -17,8 +17,26 @@ import torch
 import utils
 
 
-words = ['roomba',
-         # Add your own words here!
+words= [
+        # 'ebesedefegeh',
+        # 'cake',
+        # 'goat',
+        # 'happy',
+        #
+        # 'drink',
+        # 'sheep',
+        # 'sharpener',
+        #
+        #
+        # 'aardvark',
+        # 'jabuki',
+        # 'xavier',
+        #
+        # 'well-mannered',
+        # 'suit-up',
+        # 'inter-change'
+
+        'psychology'
         ]
 
 
