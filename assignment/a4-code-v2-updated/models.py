@@ -67,7 +67,6 @@ class DCGenerator(nn.Module):
         """
 
         out = F.relu(self.deconv1(z))    # BS x 128 x 4 x 4
-        print (out.size())
         out = F.relu(self.deconv2(out))  # BS x 64 x 8 x 8
         out = F.relu(self.deconv3(out))  # BS x 32 x 16 x 16
         out = F.tanh(self.deconv4(out))  # BS x 3 x 32 x 32
