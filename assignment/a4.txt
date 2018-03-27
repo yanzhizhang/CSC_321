@@ -18,3 +18,15 @@ MKL_NUM_THREADS=1 python cycle_gan.py --load=pretrained --train_iters=100
 MKL_NUM_THREADS=1 python cycle_gan.py --load=pretrained_cycle \
 --use_cycle_consistency_loss \
 --train_iters=100
+
+
+
+
+TESTING:
+
+MKL_NUM_THREADS=1 python model_checker.py
+
+
+
+
+MKL_NUM_THREADS=1 python cycle_gan.py --load=pretrained_cycle --train_iters=100

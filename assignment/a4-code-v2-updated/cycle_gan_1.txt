@@ -1,0 +1,185 @@
+zhan1767@b2240-06:~/CSC_321/assignment/a4-code-v2-updated$ MKL_NUM_THREADS=1 python cycle_gan.py
+================================================================================
+                                      Opts
+--------------------------------------------------------------------------------
+                           sample_every: 100
+                            train_iters: 600
+                         checkpoint_dir: checkpoints_cyclegan
+                             sample_dir: samples_cyclegan
+                       checkpoint_every: 800
+                             batch_size: 16                                     
+                             g_conv_dim: 32
+                                      Y: Windows
+                                     lr: 0.0003
+                                  beta2: 0.999
+                                  beta1: 0.5
+                             image_size: 32
+                                      X: Apple
+                               log_step: 10
+                             d_conv_dim: 32
+================================================================================
+                 G_XtoY
+---------------------------------------
+CycleGenerator(
+  (conv1): Sequential(
+    (0): Conv2d (3, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv2): Sequential(
+    (0): Conv2d (32, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (resnet_block): ResnetBlock(
+    (conv_layer): Sequential(
+      (0): Conv2d (64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+    )
+  )
+  (deconv1): Sequential(
+    (0): ConvTranspose2d (64, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (deconv2): Sequential(
+    (0): ConvTranspose2d (32, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+  )
+)
+---------------------------------------
+                 G_YtoX
+---------------------------------------
+CycleGenerator(
+  (conv1): Sequential(
+    (0): Conv2d (3, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv2): Sequential(
+    (0): Conv2d (32, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (resnet_block): ResnetBlock(
+    (conv_layer): Sequential(
+      (0): Conv2d (64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+    )
+  )
+  (deconv1): Sequential(
+    (0): ConvTranspose2d (64, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (deconv2): Sequential(
+    (0): ConvTranspose2d (32, 3, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+  )
+)
+---------------------------------------
+                  D_X
+---------------------------------------
+DCDiscriminator(
+  (conv1): Sequential(
+    (0): Conv2d (3, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv2): Sequential(
+    (0): Conv2d (32, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv3): Sequential(
+    (0): Conv2d (64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv4): Sequential(
+    (0): Conv2d (128, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+  )
+)
+---------------------------------------
+                  D_Y
+---------------------------------------
+DCDiscriminator(
+  (conv1): Sequential(
+    (0): Conv2d (3, 32, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv2): Sequential(
+    (0): Conv2d (32, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv3): Sequential(
+    (0): Conv2d (64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1), bias=False)
+    (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True)
+  )
+  (conv4): Sequential(
+    (0): Conv2d (128, 1, kernel_size=(4, 4), stride=(1, 1), bias=False)
+  )
+)
+---------------------------------------
+Models moved to GPU.
+Iteration [   10/  600] | d_real_loss: 0.3002 | d_Y_loss: 0.1771 | d_X_loss: 0.2761 | d_fake_loss: 0.4533 | g_loss: 0.4164
+Iteration [   20/  600] | d_real_loss: 0.3735 | d_Y_loss: 0.1728 | d_X_loss: 0.2371 | d_fake_loss: 0.4099 | g_loss: 0.4469
+Iteration [   30/  600] | d_real_loss: 0.3180 | d_Y_loss: 0.1696 | d_X_loss: 0.1919 | d_fake_loss: 0.3615 | g_loss: 0.4904
+Iteration [   40/  600] | d_real_loss: 0.3398 | d_Y_loss: 0.1371 | d_X_loss: 0.1386 | d_fake_loss: 0.2757 | g_loss: 0.5126
+Iteration [   50/  600] | d_real_loss: 0.3598 | d_Y_loss: 0.1706 | d_X_loss: 0.1992 | d_fake_loss: 0.3698 | g_loss: 0.5011
+Iteration [   60/  600] | d_real_loss: 0.3282 | d_Y_loss: 0.1421 | d_X_loss: 0.2134 | d_fake_loss: 0.3555 | g_loss: 0.5447
+Iteration [   70/  600] | d_real_loss: 0.3758 | d_Y_loss: 0.1592 | d_X_loss: 0.2210 | d_fake_loss: 0.3801 | g_loss: 0.5374
+Iteration [   80/  600] | d_real_loss: 0.3356 | d_Y_loss: 0.1687 | d_X_loss: 0.1833 | d_fake_loss: 0.3520 | g_loss: 0.4988
+Iteration [   90/  600] | d_real_loss: 0.3459 | d_Y_loss: 0.1534 | d_X_loss: 0.1911 | d_fake_loss: 0.3445 | g_loss: 0.5855
+Iteration [  100/  600] | d_real_loss: 0.4763 | d_Y_loss: 0.1300 | d_X_loss: 0.2046 | d_fake_loss: 0.3346 | g_loss: 0.5610
+Saved samples_cyclegan/sample-000100-X-Y.png
+Saved samples_cyclegan/sample-000100-Y-X.png
+Iteration [  110/  600] | d_real_loss: 0.4034 | d_Y_loss: 0.1213 | d_X_loss: 0.2078 | d_fake_loss: 0.3291 | g_loss: 0.6060
+Iteration [  120/  600] | d_real_loss: 0.3334 | d_Y_loss: 0.1170 | d_X_loss: 0.2146 | d_fake_loss: 0.3317 | g_loss: 0.6473
+Iteration [  130/  600] | d_real_loss: 0.3813 | d_Y_loss: 0.1340 | d_X_loss: 0.2294 | d_fake_loss: 0.3634 | g_loss: 0.6176
+Iteration [  140/  600] | d_real_loss: 0.3806 | d_Y_loss: 0.1490 | d_X_loss: 0.1675 | d_fake_loss: 0.3165 | g_loss: 0.6261
+Iteration [  150/  600] | d_real_loss: 0.2842 | d_Y_loss: 0.1140 | d_X_loss: 0.1700 | d_fake_loss: 0.2840 | g_loss: 0.6368
+Iteration [  160/  600] | d_real_loss: 0.3951 | d_Y_loss: 0.1346 | d_X_loss: 0.2134 | d_fake_loss: 0.3480 | g_loss: 0.6419
+Iteration [  170/  600] | d_real_loss: 0.3998 | d_Y_loss: 0.1080 | d_X_loss: 0.2107 | d_fake_loss: 0.3187 | g_loss: 0.6270
+Iteration [  180/  600] | d_real_loss: 0.4135 | d_Y_loss: 0.0759 | d_X_loss: 0.2481 | d_fake_loss: 0.3241 | g_loss: 0.6454
+Iteration [  190/  600] | d_real_loss: 0.3660 | d_Y_loss: 0.1743 | d_X_loss: 0.2278 | d_fake_loss: 0.4021 | g_loss: 0.5727
+Iteration [  200/  600] | d_real_loss: 0.3152 | d_Y_loss: 0.1020 | d_X_loss: 0.2253 | d_fake_loss: 0.3272 | g_loss: 0.6701
+Saved samples_cyclegan/sample-000200-X-Y.png
+Saved samples_cyclegan/sample-000200-Y-X.png
+Iteration [  210/  600] | d_real_loss: 0.3914 | d_Y_loss: 0.1114 | d_X_loss: 0.1802 | d_fake_loss: 0.2916 | g_loss: 0.6444
+Iteration [  220/  600] | d_real_loss: 0.3723 | d_Y_loss: 0.1379 | d_X_loss: 0.1988 | d_fake_loss: 0.3367 | g_loss: 0.6458
+Iteration [  230/  600] | d_real_loss: 0.4389 | d_Y_loss: 0.1479 | d_X_loss: 0.1869 | d_fake_loss: 0.3348 | g_loss: 0.6274
+Iteration [  240/  600] | d_real_loss: 0.4581 | d_Y_loss: 0.1177 | d_X_loss: 0.1701 | d_fake_loss: 0.2877 | g_loss: 0.6562
+Iteration [  250/  600] | d_real_loss: 0.2449 | d_Y_loss: 0.1597 | d_X_loss: 0.1870 | d_fake_loss: 0.3468 | g_loss: 0.6469
+Iteration [  260/  600] | d_real_loss: 0.3363 | d_Y_loss: 0.1303 | d_X_loss: 0.2304 | d_fake_loss: 0.3608 | g_loss: 0.6749
+Iteration [  270/  600] | d_real_loss: 0.3667 | d_Y_loss: 0.1906 | d_X_loss: 0.1708 | d_fake_loss: 0.3614 | g_loss: 0.6435
+Iteration [  280/  600] | d_real_loss: 0.2858 | d_Y_loss: 0.1163 | d_X_loss: 0.1462 | d_fake_loss: 0.2625 | g_loss: 0.6520
+Iteration [  290/  600] | d_real_loss: 0.2487 | d_Y_loss: 0.1484 | d_X_loss: 0.1750 | d_fake_loss: 0.3233 | g_loss: 0.6889
+Iteration [  300/  600] | d_real_loss: 0.2381 | d_Y_loss: 0.0889 | d_X_loss: 0.2346 | d_fake_loss: 0.3236 | g_loss: 0.7349
+Saved samples_cyclegan/sample-000300-X-Y.png
+Saved samples_cyclegan/sample-000300-Y-X.png
+Iteration [  310/  600] | d_real_loss: 0.3937 | d_Y_loss: 0.1301 | d_X_loss: 0.2293 | d_fake_loss: 0.3594 | g_loss: 0.7218
+Iteration [  320/  600] | d_real_loss: 0.2984 | d_Y_loss: 0.1618 | d_X_loss: 0.2170 | d_fake_loss: 0.3788 | g_loss: 0.6756
+Iteration [  330/  600] | d_real_loss: 0.2244 | d_Y_loss: 0.0979 | d_X_loss: 0.2289 | d_fake_loss: 0.3268 | g_loss: 0.6976
+Iteration [  340/  600] | d_real_loss: 0.2603 | d_Y_loss: 0.1264 | d_X_loss: 0.1719 | d_fake_loss: 0.2983 | g_loss: 0.6703
+Iteration [  350/  600] | d_real_loss: 0.3265 | d_Y_loss: 0.1013 | d_X_loss: 0.1931 | d_fake_loss: 0.2944 | g_loss: 0.6712
+Iteration [  360/  600] | d_real_loss: 0.3678 | d_Y_loss: 0.1029 | d_X_loss: 0.1836 | d_fake_loss: 0.2865 | g_loss: 0.6955
+Iteration [  370/  600] | d_real_loss: 0.3570 | d_Y_loss: 0.1063 | d_X_loss: 0.1567 | d_fake_loss: 0.2630 | g_loss: 0.7290
+Iteration [  380/  600] | d_real_loss: 0.3264 | d_Y_loss: 0.0728 | d_X_loss: 0.1524 | d_fake_loss: 0.2251 | g_loss: 0.7111
+Iteration [  390/  600] | d_real_loss: 0.3074 | d_Y_loss: 0.1071 | d_X_loss: 0.1715 | d_fake_loss: 0.2786 | g_loss: 0.7233
+Iteration [  400/  600] | d_real_loss: 0.3030 | d_Y_loss: 0.0913 | d_X_loss: 0.1948 | d_fake_loss: 0.2861 | g_loss: 0.6762
+Saved samples_cyclegan/sample-000400-X-Y.png
+Saved samples_cyclegan/sample-000400-Y-X.png
+Iteration [  410/  600] | d_real_loss: 0.4132 | d_Y_loss: 0.1725 | d_X_loss: 0.1289 | d_fake_loss: 0.3014 | g_loss: 0.6512
+Iteration [  420/  600] | d_real_loss: 0.1801 | d_Y_loss: 0.0979 | d_X_loss: 0.1413 | d_fake_loss: 0.2392 | g_loss: 0.6974
+Iteration [  430/  600] | d_real_loss: 0.2539 | d_Y_loss: 0.0781 | d_X_loss: 0.1842 | d_fake_loss: 0.2623 | g_loss: 0.7406
+Iteration [  440/  600] | d_real_loss: 0.2782 | d_Y_loss: 0.0792 | d_X_loss: 0.1762 | d_fake_loss: 0.2554 | g_loss: 0.7364
+Iteration [  450/  600] | d_real_loss: 0.2642 | d_Y_loss: 0.0899 | d_X_loss: 0.1542 | d_fake_loss: 0.2441 | g_loss: 0.7073
+Iteration [  460/  600] | d_real_loss: 0.3047 | d_Y_loss: 0.0600 | d_X_loss: 0.1833 | d_fake_loss: 0.2434 | g_loss: 0.7471
+Iteration [  470/  600] | d_real_loss: 0.1461 | d_Y_loss: 0.0753 | d_X_loss: 0.1706 | d_fake_loss: 0.2460 | g_loss: 0.7508
+Iteration [  480/  600] | d_real_loss: 0.2576 | d_Y_loss: 0.1635 | d_X_loss: 0.1960 | d_fake_loss: 0.3595 | g_loss: 0.7585
+Iteration [  490/  600] | d_real_loss: 0.2658 | d_Y_loss: 0.0835 | d_X_loss: 0.1661 | d_fake_loss: 0.2496 | g_loss: 0.7655
+Iteration [  500/  600] | d_real_loss: 0.3139 | d_Y_loss: 0.1287 | d_X_loss: 0.1549 | d_fake_loss: 0.2835 | g_loss: 0.7294
+Saved samples_cyclegan/sample-000500-X-Y.png
+Saved samples_cyclegan/sample-000500-Y-X.png
+Iteration [  510/  600] | d_real_loss: 0.2569 | d_Y_loss: 0.1012 | d_X_loss: 0.1643 | d_fake_loss: 0.2655 | g_loss: 0.7775
+Iteration [  520/  600] | d_real_loss: 0.2593 | d_Y_loss: 0.0766 | d_X_loss: 0.1444 | d_fake_loss: 0.2210 | g_loss: 0.7702
+Iteration [  530/  600] | d_real_loss: 0.3032 | d_Y_loss: 0.0583 | d_X_loss: 0.1352 | d_fake_loss: 0.1935 | g_loss: 0.7334
+Iteration [  540/  600] | d_real_loss: 0.2306 | d_Y_loss: 0.0784 | d_X_loss: 0.1876 | d_fake_loss: 0.2660 | g_loss: 0.7838
+Iteration [  550/  600] | d_real_loss: 0.2022 | d_Y_loss: 0.0997 | d_X_loss: 0.1710 | d_fake_loss: 0.2707 | g_loss: 0.7778
+Iteration [  560/  600] | d_real_loss: 0.2132 | d_Y_loss: 0.1153 | d_X_loss: 0.1196 | d_fake_loss: 0.2350 | g_loss: 0.7372
+Iteration [  570/  600] | d_real_loss: 0.3037 | d_Y_loss: 0.0479 | d_X_loss: 0.1848 | d_fake_loss: 0.2327 | g_loss: 0.7279
+Iteration [  580/  600] | d_real_loss: 0.2148 | d_Y_loss: 0.0415 | d_X_loss: 0.1373 | d_fake_loss: 0.1787 | g_loss: 0.7843
+Iteration [  590/  600] | d_real_loss: 0.1710 | d_Y_loss: 0.1852 | d_X_loss: 0.1330 | d_fake_loss: 0.3181 | g_loss: 0.7941
+Iteration [  600/  600] | d_real_loss: 0.3520 | d_Y_loss: 0.0580 | d_X_loss: 0.1051 | d_fake_loss: 0.1631 | g_loss: 0.7241
+Saved samples_cyclegan/sample-000600-X-Y.png
+Saved samples_cyclegan/sample-000600-Y-X.png

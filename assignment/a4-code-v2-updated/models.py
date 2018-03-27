@@ -142,7 +142,7 @@ class DCDiscriminator(nn.Module):
         self.conv1 = conv(3,32,4,batch_norm=True)
         self.conv2 = conv(32,64,4,batch_norm=True)
         self.conv3 = conv(64,128,4,batch_norm=True)
-        self.conv4 = conv(128,1,4,batch_norm=False)
+        self.conv4 = conv(128,1,4,stride=1,padding=0,batch_norm=False)
 
     def forward(self, x):
 
