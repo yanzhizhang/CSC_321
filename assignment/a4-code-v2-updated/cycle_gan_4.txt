@@ -1,4 +1,4 @@
-zhan1767@b2240-06:~/CSC_321/assignment/a4-code-v2-updated$ MKL_NUM_THREADS=1 python cycle_gan.py --load=pretrained_cycle \
+zhan1767@b2240-03:~/CSC_321/assignment/a4-code-v2-updated$ MKL_NUM_THREADS=1 python cycle_gan.py --load=pretrained_cycle \
 > --use_cycle_consistency_loss \
 > --train_iters=100
 ================================================================================
@@ -23,23 +23,23 @@ zhan1767@b2240-06:~/CSC_321/assignment/a4-code-v2-updated$ MKL_NUM_THREADS=1 pyt
              use_cycle_consistency_loss: 1
 ================================================================================
 Models moved to GPU.
-Iteration [   10/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.8703
-Iteration [   20/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0018 | d_fake_loss: 0.0018 | g_loss: 1.7933
+Iteration [   10/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0001 | d_fake_loss: 0.0001 | g_loss: 123.2358
+Iteration [   20/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0002 | d_fake_loss: 0.0002 | g_loss: 95.8033
 Saved samples_cyclegan_cycle_pretrained/sample-000020-X-Y.png
 Saved samples_cyclegan_cycle_pretrained/sample-000020-Y-X.png
-Iteration [   30/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.9439
-Iteration [   40/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.8320
+Iteration [   30/  100] | d_real_loss: 0.0012 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 97.6199
+Iteration [   40/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 93.9226
 Saved samples_cyclegan_cycle_pretrained/sample-000040-X-Y.png
 Saved samples_cyclegan_cycle_pretrained/sample-000040-Y-X.png
-Iteration [   50/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.9298
-Iteration [   60/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0011 | d_X_loss: 0.0001 | d_fake_loss: 0.0012 | g_loss: 1.9371
+Iteration [   50/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 85.6871
+Iteration [   60/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0010 | d_X_loss: 0.0001 | d_fake_loss: 0.0011 | g_loss: 77.2184
 Saved samples_cyclegan_cycle_pretrained/sample-000060-X-Y.png
 Saved samples_cyclegan_cycle_pretrained/sample-000060-Y-X.png
-Iteration [   70/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.5728
-Iteration [   80/  100] | d_real_loss: 0.0001 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.6707
+Iteration [   70/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 104.6777
+Iteration [   80/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 69.0360
 Saved samples_cyclegan_cycle_pretrained/sample-000080-X-Y.png
 Saved samples_cyclegan_cycle_pretrained/sample-000080-Y-X.png
-Iteration [   90/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 1.5985
-Iteration [  100/  100] | d_real_loss: 0.0648 | d_Y_loss: 0.0000 | d_X_loss: 0.0009 | d_fake_loss: 0.0009 | g_loss: 1.6626
+Iteration [   90/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 85.8646
+Iteration [  100/  100] | d_real_loss: 0.0000 | d_Y_loss: 0.0000 | d_X_loss: 0.0000 | d_fake_loss: 0.0000 | g_loss: 88.7450
 Saved samples_cyclegan_cycle_pretrained/sample-000100-X-Y.png
-Saved samples_cyclegan_cycle_pretrained/sample-000100-Y-X.png 
+Saved samples_cyclegan_cycle_pretrained/sample-000100-Y-X.png
